@@ -68,3 +68,14 @@ services:
       # (see https://docs.directus.io/configuration/config-options/#general)
       # PUBLIC_URL: https://directus.example.com
 
+  webhook:
+    container_name: webhook
+    image: jmalloc/echo-server:latest
+    environment:
+      LOG_HTTP_BODY: Yes
+      LOG_HTTP_HEADERS: Yes
+    ports:
+      - 8080:8080
+    networks:
+      - directus
+
